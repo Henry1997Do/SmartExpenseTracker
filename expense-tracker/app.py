@@ -127,40 +127,45 @@ st.markdown("""
         border-color: #6b7280;
     }
     
-    /* Input fields - Modern card style */
-    input, textarea, select {
-        background-color: #2d3748 !important;
-        border: 1px solid #4a5568 !important;
-        color: #ffffff !important;
-        border-radius: 12px !important;
+    /* Input fields - Blue theme to match dropdown */
+    input, textarea {
+        background-color: #1e3a5f !important;
+        border: 1px solid #60a5fa !important;
+        color: #60a5fa !important;
+        border-radius: 20px !important;
         padding: 0.75rem 1rem !important;
         caret-color: #60a5fa !important;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         transition: all 0.2s;
         font-size: 0.95rem !important;
+        font-weight: 600 !important;
     }
     
     /* Placeholder text */
     input::placeholder, textarea::placeholder {
-        color: #9ca3af !important;
-        opacity: 1 !important;
+        color: #60a5fa !important;
+        opacity: 0.7 !important;
     }
     
-    input:focus, textarea:focus, select:focus {
-        border-color: #4a5568 !important;
+    input:focus, textarea:focus {
+        border-color: #60a5fa !important;
         box-shadow: none !important;
         outline: none !important;
-        background-color: #374151 !important;
+        background-color: #1e3a5f !important;
     }
-    input:hover, textarea:hover, select:hover {
-        border-color: #4a5568 !important;
-        background-color: #374151 !important;
+    input:hover, textarea:hover {
+        border-color: #60a5fa !important;
+        background-color: #2d5a8f !important;
     }
     
     /* Date and number inputs */
     input[type="date"], input[type="number"] {
         padding: 0.75rem 1rem !important;
-        color: #ffffff !important;
+        color: #60a5fa !important;
+        background-color: #1e3a5f !important;
+        border: 1px solid #60a5fa !important;
+        border-radius: 20px !important;
+        font-weight: 600 !important;
     }
     
     /* Select dropdowns - Override Streamlit defaults */
