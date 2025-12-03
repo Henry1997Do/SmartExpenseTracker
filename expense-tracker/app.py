@@ -897,19 +897,14 @@ def main():
         st.header("➕ Add New Expense")
 
         with st.form("add_expense_form", clear_on_submit=True):
+            # First row: Date and Amount
             col1, col2 = st.columns(2)
-
             with col1:
                 expense_date = st.date_input(
                     "Date",
                     value=datetime.now(),
                     max_value=datetime.now()
                 )
-                expense_description = st.text_input(
-                    "Description",
-                    placeholder="e.g., Starbucks coffee"
-                )
-
             with col2:
                 expense_amount = st.number_input(
                     "Amount ($)",
@@ -917,6 +912,15 @@ def main():
                     step=0.01,
                     format="%.2f"
                 )
+
+            # Second row: Description and Category
+            col3, col4 = st.columns(2)
+            with col3:
+                expense_description = st.text_input(
+                    "Description",
+                    placeholder="e.g., Starbucks coffee"
+                )
+            with col4:
                 expense_category = st.selectbox(
                     "Category",
                     options=sorted(label_encoder.classes_)
