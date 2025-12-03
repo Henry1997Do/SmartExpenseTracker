@@ -267,16 +267,31 @@ st.markdown("""
         min-width: 0 !important;
     }
     
-    /* Make number input container use flexbox */
-    .stNumberInput > div > div > div {
+    /* Make ALL number input containers use flexbox and full width */
+    .stNumberInput,
+    .stNumberInput > div,
+    .stNumberInput > div > div,
+    .stNumberInput > div > div > div,
+    .stNumberInput > div > div > div > div {
         display: flex !important;
-        gap: 0.5rem !important;
         width: 100% !important;
     }
     
-    /* Style the +/- buttons */
+    /* Add gap between input and buttons */
+    .stNumberInput > div > div > div {
+        gap: 0.5rem !important;
+    }
+    
+    /* Style the +/- buttons - don't let them shrink */
     .stNumberInput button {
         flex-shrink: 0 !important;
+        min-width: 40px !important;
+    }
+    
+    /* Force base-input to expand */
+    .stNumberInput [data-baseweb="base-input"] {
+        flex: 1 !important;
+        width: 100% !important;
     }
     
     /* Select dropdowns - Override Streamlit defaults */
