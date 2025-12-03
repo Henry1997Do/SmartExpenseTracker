@@ -83,43 +83,64 @@ st.markdown("""
         font-weight: 500;
     }
     
-    /* Buttons */
+    /* Buttons - Rounded pill style */
     .stButton button {
-        background-color: #1e3a5f;
-        color: #60a5fa;
-        border: 1px solid #2d5a8f;
-        border-radius: 8px;
+        background-color: #1a202c;
+        color: #8b95a1;
+        border: 2px solid #2d3748;
+        border-radius: 25px;
         font-weight: 600;
-        padding: 0.5rem 1.5rem;
-        transition: all 0.2s;
+        padding: 0.6rem 1.8rem;
+        transition: all 0.3s;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
     .stButton button:hover {
-        background-color: #2d5a8f;
+        background-color: #243447;
         border-color: #60a5fa;
-        transform: translateY(-1px);
+        color: #e1e8ed;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
     .stButton button[kind="primary"] {
-        background-color: #2563eb;
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         color: white;
-        border: none;
+        border: 2px solid #60a5fa;
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.5);
     }
     .stButton button[kind="primary"]:hover {
-        background-color: #1d4ed8;
+        background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 100%);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(37, 99, 235, 0.6);
+    }
+    .stButton button[kind="secondary"] {
+        background-color: #2d3748;
+        color: #cbd5e0;
+        border: 2px solid #4a5568;
+    }
+    .stButton button[kind="secondary"]:hover {
+        background-color: #374151;
+        border-color: #6b7280;
     }
     
-    /* Input fields */
+    /* Input fields - Rounded style */
     input, textarea, select {
         background-color: #1a202c !important;
-        border: 1px solid #2d3748 !important;
+        border: 2px solid #2d3748 !important;
         color: #e1e8ed !important;
-        border-radius: 8px !important;
+        border-radius: 20px !important;
+        padding: 0.6rem 1.2rem !important;
         caret-color: transparent !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s;
     }
     input:focus, textarea:focus, select:focus {
-        border-color: #2d3748 !important;
-        box-shadow: none !important;
+        border-color: #60a5fa !important;
+        box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.1) !important;
         outline: none !important;
         caret-color: transparent !important;
+    }
+    input:hover, textarea:hover, select:hover {
+        border-color: #4a5568 !important;
     }
     
     /* Headers */
