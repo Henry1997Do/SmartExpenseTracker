@@ -35,36 +35,40 @@ st.markdown("""
         padding: 1rem 2rem;
     }
     
-    /* Modern tabs */
+    /* Modern tabs - Rounded button style */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 0;
+        gap: 1rem;
         background-color: transparent;
-        border-bottom: 1px solid #2d3748;
+        border-bottom: none;
         display: flex;
         width: 100%;
+        padding: 1rem 0;
     }
     .stTabs [data-baseweb="tab"] {
         height: 3.5rem;
         flex: 1;
         font-size: 1rem;
-        font-weight: 500;
+        font-weight: 600;
         color: #8b95a1;
         background-color: #1a202c;
-        border: 1px solid #2d3748;
-        border-bottom: none;
-        border-radius: 0;
+        border: 2px solid #2d3748;
+        border-radius: 25px;
         text-align: center;
-        transition: all 0.2s;
+        transition: all 0.3s;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
     }
     .stTabs [data-baseweb="tab"]:hover {
         background-color: #243447;
         color: #e1e8ed;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
     }
     .stTabs [data-baseweb="tab"][aria-selected="true"] {
-        background-color: #1e3a5f;
-        color: #60a5fa;
-        font-weight: 600;
-        border-bottom: 3px solid #60a5fa;
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+        color: white;
+        font-weight: 700;
+        border: 2px solid #60a5fa;
+        box-shadow: 0 4px 16px rgba(37, 99, 235, 0.5);
     }
     
     /* Card styling */
