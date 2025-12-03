@@ -263,24 +263,6 @@ st.markdown("""
         border: none !important;
         border-radius: 20px !important;
         font-weight: 600 !important;
-        width: 100% !important;
-    }
-    
-    /* Hide number input spinner buttons */
-    input[type="number"]::-webkit-inner-spin-button,
-    input[type="number"]::-webkit-outer-spin-button {
-        -webkit-appearance: none !important;
-        margin: 0 !important;
-    }
-    
-    /* Hide Streamlit's +/- buttons for number input */
-    .stNumberInput button {
-        display: none !important;
-    }
-    
-    /* Make number input container fill space */
-    .stNumberInput > div > div {
-        width: 100% !important;
     }
     
     /* Select dropdowns - Override Streamlit defaults */
