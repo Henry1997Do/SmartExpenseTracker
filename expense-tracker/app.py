@@ -263,6 +263,20 @@ st.markdown("""
         border: none !important;
         border-radius: 20px !important;
         font-weight: 600 !important;
+        flex: 1 !important;
+        min-width: 0 !important;
+    }
+    
+    /* Make number input container use flexbox */
+    .stNumberInput > div > div > div {
+        display: flex !important;
+        gap: 0.5rem !important;
+        width: 100% !important;
+    }
+    
+    /* Style the +/- buttons */
+    .stNumberInput button {
+        flex-shrink: 0 !important;
     }
     
     /* Select dropdowns - Override Streamlit defaults */
