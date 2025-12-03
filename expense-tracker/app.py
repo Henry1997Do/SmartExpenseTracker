@@ -229,7 +229,8 @@ st.markdown("""
     /* Clip the outer glow using overflow */
     .stTextInput > div,
     .stNumberInput > div,
-    .stTextArea > div {
+    .stTextArea > div,
+    .stSelectbox > div {
         overflow: hidden !important;
         border-radius: 20px !important;
     }
