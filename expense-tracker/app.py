@@ -37,28 +37,34 @@ st.markdown("""
     
     /* Modern tabs */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 0.5rem;
+        gap: 0;
         background-color: transparent;
         border-bottom: 1px solid #2d3748;
+        display: flex;
+        width: 100%;
     }
     .stTabs [data-baseweb="tab"] {
-        height: 3rem;
-        padding: 0 1.5rem;
+        height: 3.5rem;
+        flex: 1;
         font-size: 1rem;
         font-weight: 500;
         color: #8b95a1;
-        background-color: transparent;
-        border: none;
-        border-radius: 8px 8px 0 0;
+        background-color: #1a202c;
+        border: 1px solid #2d3748;
+        border-bottom: none;
+        border-radius: 0;
+        text-align: center;
+        transition: all 0.2s;
     }
     .stTabs [data-baseweb="tab"]:hover {
-        background-color: #1a202c;
+        background-color: #243447;
         color: #e1e8ed;
     }
     .stTabs [data-baseweb="tab"][aria-selected="true"] {
         background-color: #1e3a5f;
         color: #60a5fa;
         font-weight: 600;
+        border-bottom: 3px solid #60a5fa;
     }
     
     /* Card styling */
