@@ -185,7 +185,7 @@ st.markdown("""
         box-shadow: none !important;
     }
     
-    /* Override Streamlit input wrapper - Remove all borders and shadows */
+    /* Override Streamlit input wrapper - Remove all borders and shadows, full width */
     div[data-baseweb="input"],
     div[data-baseweb="input"] > div,
     .stTextInput > div > div,
@@ -197,6 +197,7 @@ st.markdown("""
         box-shadow: none !important;
         border: none !important;
         background: transparent !important;
+        width: 100% !important;
     }
     
     div[data-baseweb="input"]:focus-within,
