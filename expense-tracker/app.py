@@ -165,13 +165,35 @@ st.markdown("""
         box-shadow: none !important;
     }
     
-    /* Override Streamlit input wrapper */
-    div[data-baseweb="input"] {
+    /* Override Streamlit input wrapper - Remove all borders and shadows */
+    div[data-baseweb="input"],
+    div[data-baseweb="input"] > div,
+    .stTextInput > div > div,
+    .stNumberInput > div > div,
+    .stTextArea > div > div {
         box-shadow: none !important;
+        border: none !important;
     }
     
-    div[data-baseweb="input"]:focus-within {
+    div[data-baseweb="input"]:focus-within,
+    div[data-baseweb="input"] > div:focus-within,
+    .stTextInput > div > div:focus-within,
+    .stNumberInput > div > div:focus-within,
+    .stTextArea > div > div:focus-within {
         box-shadow: none !important;
+        border: none !important;
+        outline: none !important;
+    }
+    
+    /* Target Streamlit's inner input container */
+    [data-baseweb="base-input"] {
+        background-color: transparent !important;
+        border: none !important;
+    }
+    
+    [data-baseweb="base-input"]:focus-within {
+        box-shadow: none !important;
+        border: none !important;
     }
     
     /* Date and number inputs */
