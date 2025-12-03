@@ -127,10 +127,10 @@ st.markdown("""
         border-color: #6b7280;
     }
     
-    /* Input fields - Blue theme to match dropdown */
+    /* Input fields - Blue theme with no visible focus ring */
     input, textarea {
         background-color: #1e3a5f !important;
-        border: 1px solid #60a5fa !important;
+        border: 2px solid #1e3a5f !important;
         color: #60a5fa !important;
         border-radius: 20px !important;
         padding: 0.75rem 1rem !important;
@@ -139,12 +139,6 @@ st.markdown("""
         transition: none !important;
         font-size: 0.95rem !important;
         font-weight: 600 !important;
-        /* Remove ring utilities */
-        --tw-ring-offset-shadow: 0 0 transparent !important;
-        --tw-ring-shadow: 0 0 transparent !important;
-        --tw-ring-color: transparent !important;
-        --tw-ring-offset-width: 0px !important;
-        --tw-ring-offset-color: transparent !important;
     }
     
     /* Placeholder text */
@@ -153,24 +147,20 @@ st.markdown("""
         opacity: 0.7 !important;
     }
     
-    /* Remove ALL focus effects */
+    /* Remove ALL focus effects - border matches background */
     input:focus, textarea:focus,
     input:focus-visible, textarea:focus-visible,
     input:active, textarea:active {
-        border: 1px solid #60a5fa !important;
+        border: 2px solid #1e3a5f !important;
         box-shadow: 0 0 0 0 transparent !important;
         outline: none !important;
         outline-width: 0 !important;
         outline-offset: 0 !important;
         background-color: #1e3a5f !important;
-        /* Remove ring on focus */
-        --tw-ring-offset-shadow: 0 0 transparent !important;
-        --tw-ring-shadow: 0 0 transparent !important;
-        --tw-ring-color: transparent !important;
     }
     
     input:hover, textarea:hover {
-        border: 1px solid #60a5fa !important;
+        border: 2px solid #1e3a5f !important;
         background-color: #2d5a8f !important;
         box-shadow: none !important;
     }
@@ -211,7 +201,7 @@ st.markdown("""
         padding: 0.75rem 1rem !important;
         color: #60a5fa !important;
         background-color: #1e3a5f !important;
-        border: 1px solid #60a5fa !important;
+        border: 2px solid #1e3a5f !important;
         border-radius: 20px !important;
         font-weight: 600 !important;
     }
