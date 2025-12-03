@@ -29,6 +29,15 @@ st.set_page_config(
 # Modern Dark Theme CSS (Inspired by Copilot)
 st.markdown("""
     <style>
+    /* UNIVERSAL FOCUS BORDER REMOVAL - Apply to everything */
+    *, *:focus, *:focus-visible, *:active, *:focus-within {
+        outline: none !important;
+        box-shadow: none !important;
+        --tw-ring-shadow: 0 0 transparent !important;
+        --tw-ring-offset-shadow: 0 0 transparent !important;
+        --tw-ring-color: transparent !important;
+    }
+    
     /* Dark background */
     .stApp {
         background-color: #0f1419;
