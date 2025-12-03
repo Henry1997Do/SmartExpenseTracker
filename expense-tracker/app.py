@@ -288,9 +288,27 @@ st.markdown("""
         background-color: transparent !important;
     }
     
-    /* Style the +/- buttons */
+    /* Style the +/- buttons - integrate into blue container */
     .stNumberInput button {
         flex-shrink: 0 !important;
+        background-color: transparent !important;
+        color: #60a5fa !important;
+        border: none !important;
+        font-size: 1.2rem !important;
+        padding: 0.5rem !important;
+        min-width: 40px !important;
+    }
+    
+    .stNumberInput button:hover {
+        background-color: rgba(96, 165, 250, 0.1) !important;
+        color: #93c5fd !important;
+    }
+    
+    /* Make the button container part of the blue background */
+    .stNumberInput > div > div > div {
+        background-color: #1e3a5f !important;
+        border-radius: 20px !important;
+        padding: 0.25rem 0.5rem !important;
     }
     
     /* Select dropdowns - Override Streamlit defaults */
