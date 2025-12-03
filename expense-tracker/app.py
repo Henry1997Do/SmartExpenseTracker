@@ -388,32 +388,21 @@ def main():
                 with col4:
                     st.text(row['category'])
                 with col5:
-                    # Small delete button with confirmation
-                    delete_key = f"delete_{idx}"
-                    confirm_key = f"confirm_{idx}"
+                    # Delete button with confirmation
+                    if st.button("✕", key=f"delete_{idx}", help="Delete transaction"):
+                        # Show confirmation warning
+                        st.warning(f"⚠️ Delete '{row['description']}'?")
 
-                    # Initialize confirmation state
-                    if confirm_key not in st.session_state:
-                        st.session_state[confirm_key] = False
-
-                    # Show delete button or confirmation
-                    if not st.session_state[confirm_key]:
-                        if st.button("✕", key=delete_key, help="Delete", type="secondary"):
-                            st.session_state[confirm_key] = True
-                            st.rerun()
-                    else:
-                        # Show confirmation with smaller buttons
-                        subcol1, subcol2 = st.columns(2)
-                        with subcol1:
-                            if st.button("✓", key=f"yes_{idx}", help="Confirm", type="primary"):
+                        # Confirmation buttons
+                        col_yes, col_no = st.columns(2)
+                        with col_yes:
+                            if st.button("Yes, delete", key=f"confirm_yes_{idx}", type="primary"):
                                 df = df.drop(idx)
                                 save_expense_data(df)
-                                st.session_state[confirm_key] = False
-                                st.success("✅ Deleted!")
+                                st.success("✅ Transaction deleted!")
                                 st.rerun()
-                        with subcol2:
-                            if st.button("✕", key=f"no_{idx}", help="Cancel", type="secondary"):
-                                st.session_state[confirm_key] = False
+                        with col_no:
+                            if st.button("Cancel", key=f"confirm_no_{idx}"):
                                 st.rerun()
 
     # TAB 2: Add Expense
