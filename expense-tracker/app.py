@@ -388,16 +388,28 @@ def main():
                 category_spending = category_spending.sort_values(
                     'amount', ascending=False)
 
+                # Modern color palette
+                colors = ['#60a5fa', '#34d399', '#fbbf24', '#f472b6',
+                          '#a78bfa', '#fb923c', '#818cf8', '#f87171']
+
                 fig_pie = go.Figure(data=[go.Pie(
                     labels=category_spending['category'],
                     values=category_spending['amount'],
-                    hole=0.4,
-                    marker=dict(colors=px.colors.qualitative.Set3)
+                    hole=0.5,
+                    marker=dict(colors=colors, line=dict(
+                        color='#1a202c', width=2)),
+                    textfont=dict(size=14, color='white'),
+                    textposition='inside'
                 )])
                 fig_pie.update_layout(
-                    title="Spending by Category",
+                    title=dict(text="Spending by Category",
+                               font=dict(size=18, color='#e1e8ed')),
                     height=400,
-                    showlegend=True
+                    showlegend=True,
+                    paper_bgcolor='#1a202c',
+                    plot_bgcolor='#1a202c',
+                    font=dict(color='#cbd5e0'),
+                    legend=dict(bgcolor='#1a202c', font=dict(color='#cbd5e0'))
                 )
                 st.plotly_chart(fig_pie, use_container_width=True)
 
@@ -410,18 +422,30 @@ def main():
                     x=top_5['amount'],
                     orientation='h',
                     marker=dict(
-                        color=top_5['amount'],
-                        colorscale='Blues',
-                        showscale=False
+                        color=['#2563eb', '#1d4ed8',
+                               '#1e40af', '#1e3a8a', '#1e3a5f'],
+                        line=dict(color='#60a5fa', width=1)
                     ),
                     text=[f'${x:,.2f}' for x in top_5['amount']],
-                    textposition='auto'
+                    textposition='outside',
+                    textfont=dict(color='#60a5fa', size=12)
                 )])
                 fig_bar.update_layout(
-                    title="Top 5 Spending Categories",
-                    xaxis_title="Amount ($)",
-                    yaxis_title="Category",
-                    height=400
+                    title=dict(text="Top 5 Spending Categories",
+                               font=dict(size=18, color='#e1e8ed')),
+                    xaxis=dict(
+                        title="Amount ($)",
+                        gridcolor='#2d3748',
+                        color='#cbd5e0'
+                    ),
+                    yaxis=dict(
+                        title="Category",
+                        color='#cbd5e0'
+                    ),
+                    height=400,
+                    paper_bgcolor='#1a202c',
+                    plot_bgcolor='#1a202c',
+                    font=dict(color='#cbd5e0')
                 )
                 st.plotly_chart(fig_bar, use_container_width=True)
 
@@ -439,17 +463,30 @@ def main():
                 x=monthly_spending['month'],
                 y=monthly_spending['amount'],
                 mode='lines+markers',
-                line=dict(color='#667eea', width=3),
-                marker=dict(size=10, color='#764ba2'),
+                line=dict(color='#60a5fa', width=3),
+                marker=dict(size=12, color='#2563eb',
+                            line=dict(color='#60a5fa', width=2)),
                 fill='tozeroy',
-                fillcolor='rgba(102, 126, 234, 0.2)'
+                fillcolor='rgba(96, 165, 250, 0.1)'
             )])
             fig_line.update_layout(
-                title="Monthly Spending Trend",
-                xaxis_title="Month",
-                yaxis_title="Amount ($)",
+                title=dict(text="Monthly Spending Trend",
+                           font=dict(size=18, color='#e1e8ed')),
+                xaxis=dict(
+                    title="Month",
+                    gridcolor='#2d3748',
+                    color='#cbd5e0'
+                ),
+                yaxis=dict(
+                    title="Amount ($)",
+                    gridcolor='#2d3748',
+                    color='#cbd5e0'
+                ),
                 height=400,
-                hovermode='x unified'
+                hovermode='x unified',
+                paper_bgcolor='#1a202c',
+                plot_bgcolor='#1a202c',
+                font=dict(color='#cbd5e0')
             )
             st.plotly_chart(fig_line, use_container_width=True)
 
