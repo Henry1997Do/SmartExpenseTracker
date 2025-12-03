@@ -129,9 +129,9 @@ st.markdown("""
     
     /* Input fields - Modern card style */
     input, textarea, select {
-        background-color: #1a202c !important;
-        border: 1px solid #2d3748 !important;
-        color: #e1e8ed !important;
+        background-color: #2d3748 !important;
+        border: 1px solid #4a5568 !important;
+        color: #ffffff !important;
         border-radius: 12px !important;
         padding: 0.75rem 1rem !important;
         caret-color: #60a5fa !important;
@@ -139,24 +139,40 @@ st.markdown("""
         transition: all 0.2s;
         font-size: 0.95rem !important;
     }
+    
+    /* Placeholder text */
+    input::placeholder, textarea::placeholder {
+        color: #9ca3af !important;
+        opacity: 1 !important;
+    }
+    
     input:focus, textarea:focus, select:focus {
         border-color: #60a5fa !important;
         box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15) !important;
         outline: none !important;
-        background-color: #1e2530 !important;
+        background-color: #374151 !important;
     }
     input:hover, textarea:hover, select:hover {
-        border-color: #4a5568 !important;
+        border-color: #60a5fa !important;
+        background-color: #374151 !important;
     }
     
     /* Date and number inputs */
     input[type="date"], input[type="number"] {
         padding: 0.75rem 1rem !important;
+        color: #ffffff !important;
     }
     
     /* Select dropdowns */
     select {
         cursor: pointer;
+        color: #ffffff !important;
+    }
+    
+    /* Select option styling */
+    select option {
+        background-color: #2d3748 !important;
+        color: #ffffff !important;
     }
     
     /* Headers */
