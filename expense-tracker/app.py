@@ -148,14 +148,21 @@ st.markdown("""
     }
     
     input:focus, textarea:focus {
-        border-color: #60a5fa !important;
+        border: 1px solid #60a5fa !important;
         box-shadow: none !important;
         outline: none !important;
         background-color: #1e3a5f !important;
     }
     input:hover, textarea:hover {
-        border-color: #60a5fa !important;
+        border: 1px solid #60a5fa !important;
         background-color: #2d5a8f !important;
+    }
+    
+    /* Remove all Streamlit default focus styles */
+    input:focus-visible, textarea:focus-visible {
+        outline: none !important;
+        box-shadow: none !important;
+        border: 1px solid #60a5fa !important;
     }
     
     /* Date and number inputs */
