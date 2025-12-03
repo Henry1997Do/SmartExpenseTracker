@@ -103,11 +103,13 @@ st.markdown("""
         border: 1px solid #2d3748 !important;
         color: #e1e8ed !important;
         border-radius: 8px !important;
+        caret-color: transparent !important;
     }
     input:focus, textarea:focus, select:focus {
         border-color: #2d3748 !important;
         box-shadow: none !important;
         outline: none !important;
+        caret-color: transparent !important;
     }
     
     /* Headers */
