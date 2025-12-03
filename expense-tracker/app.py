@@ -416,7 +416,14 @@ def main():
                 with col4:
                     st.text(row['category'])
                 with col5:
-                    if st.button("🗑️", key=f"delete_{idx}", help="Delete"):
+                    # Delete button with custom styling
+                    delete_clicked = st.button(
+                        "🗑",
+                        key=f"delete_{idx}",
+                        help="Delete transaction",
+                        type="secondary"
+                    )
+                    if delete_clicked:
                         st.session_state[f"delete_confirm_{idx}"] = True
                         st.rerun()
 
