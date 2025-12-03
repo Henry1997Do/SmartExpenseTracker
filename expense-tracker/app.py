@@ -305,17 +305,22 @@ st.markdown("""
         background-color: #2d5a8f !important;
     }
     
-    /* Streamlit selectbox container */
-    div[data-baseweb="select"] > div {
+    /* Streamlit selectbox container - hide border by matching background */
+    div[data-baseweb="select"] > div,
+    div[data-baseweb="select"] > div > div {
         background-color: #1e3a5f !important;
-        border: none !important;
+        border: 2px solid #1e3a5f !important;
         border-radius: 20px !important;
+        box-shadow: none !important;
     }
     
     div[data-baseweb="select"] > div:hover,
-    div[data-baseweb="select"] > div:focus-within {
-        background-color: #2d5a8f !important;
-        border: none !important;
+    div[data-baseweb="select"] > div:focus-within,
+    div[data-baseweb="select"] > div > div:hover,
+    div[data-baseweb="select"] > div > div:focus-within {
+        background-color: #1e3a5f !important;
+        border: 2px solid #1e3a5f !important;
+        box-shadow: none !important;
     }
     
     /* Headers */
