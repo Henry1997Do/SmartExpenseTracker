@@ -1,2 +1,37 @@
 date,description,amount,category
-2025-12-02,Starbucks Coffe,0.01,Bills & Utilities
+2025-12-02,Starbucks Coffee,5.50,Food & Dining
+2025-12-01,Uber ride downtown,15.00,Transportation
+2025-11-30,Grocery shopping at Walmart,85.50,Groceries
+2025-11-29,Netflix subscription,12.99,Entertainment
+2025-11-28,Electric bill payment,120.00,Bills & Utilities
+2025-11-27,H&M shirt,25.00,Shopping
+2025-11-26,Doctor visit copay,30.00,Healthcare
+2025-11-25,Gas station fill up,45.00,Transportation
+2025-11-24,Pizza delivery,22.50,Food & Dining
+2025-11-23,Amazon purchase,67.00,Shopping
+2025-11-22,McDonald's lunch,8.99,Food & Dining
+2025-11-21,Lyft to airport,35.00,Transportation
+2025-11-20,Target groceries,92.30,Groceries
+2025-11-19,Spotify premium,9.99,Entertainment
+2025-11-18,Water bill,45.00,Bills & Utilities
+2025-11-17,Zara jacket,89.00,Shopping
+2025-11-16,Pharmacy prescription,25.00,Healthcare
+2025-11-15,Subway sandwich,7.50,Food & Dining
+2025-11-14,Whole Foods shopping,125.00,Groceries
+2025-11-13,Disney Plus,7.99,Entertainment
+2025-11-12,Chipotle burrito,12.50,Food & Dining
+2025-11-11,Bus pass,60.00,Transportation
+2025-11-10,Costco bulk shopping,200.00,Groceries
+2025-11-09,HBO Max,14.99,Entertainment
+2025-11-08,Internet bill,79.99,Bills & Utilities
+2025-11-07,Nike shoes,95.00,Shopping
+2025-11-06,Dentist cleaning,150.00,Healthcare
+2025-11-05,Taco Bell dinner,15.99,Food & Dining
+2025-11-04,Train ticket,25.00,Transportation
+2025-11-03,Fresh produce market,45.00,Groceries
+2025-11-02,Movie theater,18.00,Entertainment
+2025-11-01,Gas bill,65.00,Bills & Utilities
+2025-10-31,Forever 21 dress,35.00,Shopping
+2025-10-30,Eye exam,100.00,Healthcare
+2025-10-29,Domino's pizza,20.00,Food & Dining
+2025-10-28,Parking fee,12.00,Transportation
