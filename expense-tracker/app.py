@@ -360,6 +360,28 @@ def main():
 
             recent_df = df.sort_values('date', ascending=False).head(15).copy()
 
+            # Show confirmation message if delete was clicked (above transactions)
+            for idx, row in recent_df.iterrows():
+                if st.session_state.get(f"delete_confirm_{idx}", False):
+                    col_msg, col_yes, col_no = st.columns([6, 1, 1])
+
+                    with col_msg:
+                        st.warning(
+                            f"🗑️ Delete **{row['description']}** (${row['amount']:.2f})?")
+                    with col_yes:
+                        if st.button("Yes", key=f"yes_{idx}", type="primary"):
+                            df = df.drop(idx)
+                            save_expense_data(df)
+                            st.session_state[f"delete_confirm_{idx}"] = False
+                            st.success("✅ Deleted!")
+                            st.rerun()
+                    with col_no:
+                        if st.button("No", key=f"no_{idx}"):
+                            st.session_state[f"delete_confirm_{idx}"] = False
+                            st.rerun()
+                    st.markdown("---")
+                    break  # Only show one confirmation at a time
+
             # Column headers
             col1, col2, col3, col4, col5 = st.columns([2, 3, 2, 2, 1])
             with col1:
@@ -391,28 +413,6 @@ def main():
                     if st.button("🗑️", key=f"delete_{idx}", help="Delete"):
                         st.session_state[f"delete_confirm_{idx}"] = True
                         st.rerun()
-
-            # Show confirmation message if delete was clicked
-            for idx, row in recent_df.iterrows():
-                if st.session_state.get(f"delete_confirm_{idx}", False):
-                    st.markdown("---")
-                    col_msg, col_yes, col_no, col_space = st.columns([
-                                                                     3, 1, 1, 5])
-
-                    with col_msg:
-                        st.markdown(f"**Delete '{row['description']}'?**")
-                    with col_yes:
-                        if st.button("Yes", key=f"yes_{idx}", type="primary"):
-                            df = df.drop(idx)
-                            save_expense_data(df)
-                            st.session_state[f"delete_confirm_{idx}"] = False
-                            st.success("✅ Deleted!")
-                            st.rerun()
-                    with col_no:
-                        if st.button("No", key=f"no_{idx}"):
-                            st.session_state[f"delete_confirm_{idx}"] = False
-                            st.rerun()
-                    break  # Only show one confirmation at a time
 
     # TAB 2: Add Expense
     with tab2:
