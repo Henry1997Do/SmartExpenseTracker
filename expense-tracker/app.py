@@ -1,6 +1,7 @@
 """
 Smart Expense Tracker - Main Web Application
 A beautiful ML-powered expense tracking application built with Streamlit
+Version: 2.0 - Updated with modern dark theme and sample data
 """
 
 import streamlit as st
