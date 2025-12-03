@@ -363,20 +363,23 @@ def main():
             # Show confirmation message if delete was clicked (above transactions)
             for idx, row in recent_df.iterrows():
                 if st.session_state.get(f"delete_confirm_{idx}", False):
-                    col_msg, col_yes, col_no = st.columns([6, 1, 1])
+                    # Use custom HTML for compact warning message
+                    st.markdown(f"""
+                        <div style="background-color: #fff3cd; border-left: 4px solid #ffc107; padding: 8px 12px; border-radius: 4px; margin-bottom: 10px;">
+                            <span style="color: #856404;">🗑️ Delete <strong>{row['description']}</strong> (${row['amount']:.2f})?</span>
+                        </div>
+                    """, unsafe_allow_html=True)
 
-                    with col_msg:
-                        st.warning(
-                            f"🗑️ Delete **{row['description']}** (${row['amount']:.2f})?")
+                    col_yes, col_no, col_space = st.columns([1, 1, 8])
                     with col_yes:
-                        if st.button("Yes", key=f"yes_{idx}", type="primary"):
+                        if st.button("Yes", key=f"yes_{idx}", type="primary", use_container_width=True):
                             df = df.drop(idx)
                             save_expense_data(df)
                             st.session_state[f"delete_confirm_{idx}"] = False
                             st.success("✅ Deleted!")
                             st.rerun()
                     with col_no:
-                        if st.button("No", key=f"no_{idx}"):
+                        if st.button("No", key=f"no_{idx}", use_container_width=True):
                             st.session_state[f"delete_confirm_{idx}"] = False
                             st.rerun()
                     st.markdown("---")
