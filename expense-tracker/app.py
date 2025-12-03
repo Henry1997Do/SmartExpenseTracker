@@ -388,12 +388,33 @@ def main():
                 with col4:
                     st.text(row['category'])
                 with col5:
-                    if st.button("🗑️", key=f"delete_{idx}", help="Delete this transaction"):
-                        # Delete the row from dataframe
-                        df = df.drop(idx)
-                        save_expense_data(df)
-                        st.success("✅ Transaction deleted!")
-                        st.rerun()
+                    # Small delete button with confirmation
+                    delete_key = f"delete_{idx}"
+                    confirm_key = f"confirm_{idx}"
+
+                    # Initialize confirmation state
+                    if confirm_key not in st.session_state:
+                        st.session_state[confirm_key] = False
+
+                    # Show delete button or confirmation
+                    if not st.session_state[confirm_key]:
+                        if st.button("✕", key=delete_key, help="Delete", type="secondary"):
+                            st.session_state[confirm_key] = True
+                            st.rerun()
+                    else:
+                        # Show confirmation with smaller buttons
+                        subcol1, subcol2 = st.columns(2)
+                        with subcol1:
+                            if st.button("✓", key=f"yes_{idx}", help="Confirm", type="primary"):
+                                df = df.drop(idx)
+                                save_expense_data(df)
+                                st.session_state[confirm_key] = False
+                                st.success("✅ Deleted!")
+                                st.rerun()
+                        with subcol2:
+                            if st.button("✕", key=f"no_{idx}", help="Cancel", type="secondary"):
+                                st.session_state[confirm_key] = False
+                                st.rerun()
 
     # TAB 2: Add Expense
     with tab2:
