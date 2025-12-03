@@ -259,30 +259,40 @@ st.markdown("""
     input[type="date"], input[type="number"] {
         padding: 0.75rem 1rem !important;
         color: #60a5fa !important;
-        background-color: #1e3a5f !important;
+        background-color: transparent !important;
         border: none !important;
-        border-radius: 20px !important;
+        border-radius: 0 !important;
         font-weight: 600 !important;
         flex: 1 !important;
         min-width: 0 !important;
     }
     
-    /* Make number input container use flexbox and extend blue background */
-    .stNumberInput > div > div > div {
-        display: flex !important;
-        gap: 0.5rem !important;
-        width: 100% !important;
-    }
-    
-    /* Extend blue background to fill the container */
-    .stNumberInput [data-baseweb="base-input"] {
+    /* Date input keeps blue background */
+    input[type="date"] {
         background-color: #1e3a5f !important;
         border-radius: 20px !important;
+    }
+    
+    /* Make number input container use flexbox and apply blue background to entire container */
+    .stNumberInput > div > div > div {
+        display: flex !important;
+        gap: 0 !important;
+        width: 100% !important;
+        background-color: #1e3a5f !important;
+        border-radius: 20px !important;
+        padding: 0.25rem 0.5rem !important;
+        align-items: center !important;
+    }
+    
+    /* Make base-input transparent and flexible */
+    .stNumberInput [data-baseweb="base-input"] {
+        background-color: transparent !important;
+        border: none !important;
         flex: 1 !important;
         display: flex !important;
     }
     
-    /* Make the input inside take full width */
+    /* Make the input inside take full width and transparent */
     .stNumberInput [data-baseweb="base-input"] > div {
         width: 100% !important;
         background-color: transparent !important;
