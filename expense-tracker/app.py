@@ -235,7 +235,9 @@ def load_models():
         with open(encoder_path, 'rb') as f:
             label_encoder = pickle.load(f)
         return model, vectorizer, label_encoder
-    except FileNotFoundError:
+    except (FileNotFoundError, ModuleNotFoundError, AttributeError) as e:
+        st.warning(
+            f"⚠️ ML models could not be loaded: {str(e)}. AI Categorize feature will be disabled.")
         return None, None, None
 
 
