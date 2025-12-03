@@ -214,12 +214,14 @@ st.markdown("""
         background: transparent !important;
     }
     
-    /* Target Streamlit's inner input container */
+    /* Target Streamlit's inner input container - full width */
     [data-baseweb="base-input"],
     [data-baseweb="base-input"] > div {
         background-color: transparent !important;
         border: none !important;
         box-shadow: none !important;
+        width: 100% !important;
+        flex: 1 !important;
     }
     
     [data-baseweb="base-input"]:focus-within,
@@ -227,6 +229,13 @@ st.markdown("""
         box-shadow: none !important;
         border: none !important;
         background: transparent !important;
+    }
+    
+    /* Make parent containers full width */
+    .stTextInput,
+    .stNumberInput,
+    .stTextArea {
+        width: 100% !important;
     }
     
     /* Nuclear option - hide all wrapper borders */
