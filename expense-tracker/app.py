@@ -135,8 +135,8 @@ st.markdown("""
         border-radius: 20px !important;
         padding: 0.75rem 1rem !important;
         caret-color: #60a5fa !important;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        transition: all 0.2s;
+        box-shadow: none !important;
+        transition: none !important;
         font-size: 0.95rem !important;
         font-weight: 600 !important;
     }
@@ -147,22 +147,31 @@ st.markdown("""
         opacity: 0.7 !important;
     }
     
-    input:focus, textarea:focus {
+    /* Remove ALL focus effects */
+    input:focus, textarea:focus,
+    input:focus-visible, textarea:focus-visible,
+    input:active, textarea:active {
         border: 1px solid #60a5fa !important;
         box-shadow: none !important;
         outline: none !important;
+        outline-width: 0 !important;
+        outline-offset: 0 !important;
         background-color: #1e3a5f !important;
     }
+    
     input:hover, textarea:hover {
         border: 1px solid #60a5fa !important;
         background-color: #2d5a8f !important;
+        box-shadow: none !important;
     }
     
-    /* Remove all Streamlit default focus styles */
-    input:focus-visible, textarea:focus-visible {
-        outline: none !important;
+    /* Override Streamlit input wrapper */
+    div[data-baseweb="input"] {
         box-shadow: none !important;
-        border: 1px solid #60a5fa !important;
+    }
+    
+    div[data-baseweb="input"]:focus-within {
+        box-shadow: none !important;
     }
     
     /* Date and number inputs */
