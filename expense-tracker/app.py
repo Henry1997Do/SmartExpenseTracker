@@ -127,10 +127,10 @@ st.markdown("""
         border-color: #6b7280;
     }
     
-    /* Input fields - Blue theme with no visible focus ring */
+    /* Input fields - Blue theme to match dropdown */
     input, textarea {
         background-color: #1e3a5f !important;
-        border: 2px solid #1e3a5f !important;
+        border: 1px solid #60a5fa !important;
         color: #60a5fa !important;
         border-radius: 20px !important;
         padding: 0.75rem 1rem !important;
@@ -139,6 +139,12 @@ st.markdown("""
         transition: none !important;
         font-size: 0.95rem !important;
         font-weight: 600 !important;
+        /* Remove ring utilities */
+        --tw-ring-offset-shadow: 0 0 transparent !important;
+        --tw-ring-shadow: 0 0 transparent !important;
+        --tw-ring-color: transparent !important;
+        --tw-ring-offset-width: 0px !important;
+        --tw-ring-offset-color: transparent !important;
     }
     
     /* Placeholder text */
@@ -147,20 +153,24 @@ st.markdown("""
         opacity: 0.7 !important;
     }
     
-    /* Remove ALL focus effects - border matches background */
+    /* Remove ALL focus effects */
     input:focus, textarea:focus,
     input:focus-visible, textarea:focus-visible,
     input:active, textarea:active {
-        border: 2px solid #1e3a5f !important;
+        border: 1px solid #60a5fa !important;
         box-shadow: 0 0 0 0 transparent !important;
         outline: none !important;
         outline-width: 0 !important;
         outline-offset: 0 !important;
         background-color: #1e3a5f !important;
+        /* Remove ring on focus */
+        --tw-ring-offset-shadow: 0 0 transparent !important;
+        --tw-ring-shadow: 0 0 transparent !important;
+        --tw-ring-color: transparent !important;
     }
     
     input:hover, textarea:hover {
-        border: 2px solid #1e3a5f !important;
+        border: 1px solid #60a5fa !important;
         background-color: #2d5a8f !important;
         box-shadow: none !important;
     }
@@ -170,30 +180,48 @@ st.markdown("""
     div[data-baseweb="input"] > div,
     .stTextInput > div > div,
     .stNumberInput > div > div,
-    .stTextArea > div > div {
+    .stTextArea > div > div,
+    .stTextInput > div,
+    .stNumberInput > div,
+    .stTextArea > div {
         box-shadow: none !important;
         border: none !important;
+        background: transparent !important;
     }
     
     div[data-baseweb="input"]:focus-within,
     div[data-baseweb="input"] > div:focus-within,
     .stTextInput > div > div:focus-within,
     .stNumberInput > div > div:focus-within,
-    .stTextArea > div > div:focus-within {
+    .stTextArea > div > div:focus-within,
+    .stTextInput > div:focus-within,
+    .stNumberInput > div:focus-within,
+    .stTextArea > div:focus-within {
         box-shadow: none !important;
         border: none !important;
         outline: none !important;
+        background: transparent !important;
     }
     
     /* Target Streamlit's inner input container */
-    [data-baseweb="base-input"] {
+    [data-baseweb="base-input"],
+    [data-baseweb="base-input"] > div {
         background-color: transparent !important;
         border: none !important;
+        box-shadow: none !important;
     }
     
-    [data-baseweb="base-input"]:focus-within {
+    [data-baseweb="base-input"]:focus-within,
+    [data-baseweb="base-input"] > div:focus-within {
         box-shadow: none !important;
         border: none !important;
+        background: transparent !important;
+    }
+    
+    /* Nuclear option - hide all wrapper borders */
+    .stTextInput, .stNumberInput, .stTextArea, .stSelectbox {
+        --tw-ring-shadow: 0 0 transparent !important;
+        --tw-ring-offset-shadow: 0 0 transparent !important;
     }
     
     /* Date and number inputs */
@@ -201,7 +229,7 @@ st.markdown("""
         padding: 0.75rem 1rem !important;
         color: #60a5fa !important;
         background-color: #1e3a5f !important;
-        border: 2px solid #1e3a5f !important;
+        border: 1px solid #60a5fa !important;
         border-radius: 20px !important;
         font-weight: 600 !important;
     }
