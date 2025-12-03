@@ -21,52 +21,107 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for better styling
+# NEON STYLE CSS
 st.markdown("""
     <style>
-    .main {
-        padding: 0rem 1rem;
+    /* Dark background for neon effect */
+    .stApp {
+        background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 100%);
     }
+    
+    /* Neon text glow */
+    h1, h2, h3, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+        color: #00ff88 !important;
+        text-shadow: 0 0 10px #00ff88, 0 0 20px #00ff88, 0 0 30px #00ff88;
+        font-weight: bold !important;
+    }
+    
+    /* Neon tabs */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 2rem;
+        gap: 1rem;
+        background-color: rgba(26, 26, 46, 0.8);
+        padding: 10px;
+        border-radius: 10px;
     }
     .stTabs [data-baseweb="tab"] {
         height: 3rem;
         padding: 0 2rem;
         font-size: 1.1rem;
         font-weight: 600;
+        color: #00d9ff !important;
+        text-shadow: 0 0 5px #00d9ff;
+        border: 2px solid #00d9ff;
+        border-radius: 8px;
+        background-color: transparent;
     }
-    .metric-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 1.5rem;
-        border-radius: 10px;
-        color: white;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    .stTabs [data-baseweb="tab"][aria-selected="true"] {
+        background: linear-gradient(135deg, #ff006e 0%, #8338ec 100%);
+        color: white !important;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff006e;
+        box-shadow: 0 0 15px #ff006e, 0 0 30px #8338ec;
     }
-    .success-box {
-        background-color: #d4edda;
-        border: 1px solid #c3e6cb;
-        border-radius: 5px;
-        padding: 1rem;
-        margin: 1rem 0;
-    }
-    .warning-box {
-        background-color: #fff3cd;
-        border: 1px solid #ffeaa7;
-        border-radius: 5px;
-        padding: 1rem;
-        margin: 1rem 0;
-    }
-    .info-box {
-        background-color: #d1ecf1;
-        border: 1px solid #bee5eb;
-        border-radius: 5px;
-        padding: 1rem;
-        margin: 1rem 0;
-    }
+    
+    /* Neon metrics */
     div[data-testid="stMetricValue"] {
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-weight: bold;
+        color: #ff006e !important;
+        text-shadow: 0 0 10px #ff006e, 0 0 20px #ff006e;
+    }
+    div[data-testid="stMetricLabel"] {
+        color: #00d9ff !important;
+        text-shadow: 0 0 5px #00d9ff;
+        font-weight: 600;
+    }
+    
+    /* Neon buttons */
+    .stButton button {
+        background: linear-gradient(135deg, #ff006e 0%, #8338ec 100%);
+        color: white;
+        border: 2px solid #ff006e;
+        border-radius: 8px;
+        font-weight: bold;
+        text-shadow: 0 0 5px #fff;
+        box-shadow: 0 0 10px #ff006e, 0 0 20px #8338ec;
+        transition: all 0.3s;
+    }
+    .stButton button:hover {
+        box-shadow: 0 0 20px #ff006e, 0 0 40px #8338ec;
+        transform: scale(1.05);
+    }
+    
+    /* Neon text color */
+    p, span, div, label {
+        color: #00d9ff !important;
+    }
+    
+    /* Neon input fields */
+    input, textarea, select {
+        background-color: rgba(26, 26, 46, 0.8) !important;
+        border: 2px solid #00ff88 !important;
+        color: #00ff88 !important;
+        border-radius: 8px;
+        box-shadow: 0 0 5px #00ff88;
+    }
+    
+    /* Neon dataframe */
+    .stDataFrame {
+        border: 2px solid #00d9ff;
+        border-radius: 10px;
+        box-shadow: 0 0 15px #00d9ff;
+    }
+    
+    /* Sidebar neon */
+    section[data-testid="stSidebar"] {
+        background: linear-gradient(180deg, #1a1a2e 0%, #0a0e27 100%);
+        border-right: 2px solid #ff006e;
+        box-shadow: 0 0 20px #ff006e;
+    }
+    section[data-testid="stSidebar"] h1, 
+    section[data-testid="stSidebar"] h2,
+    section[data-testid="stSidebar"] h3 {
+        color: #ff006e !important;
+        text-shadow: 0 0 10px #ff006e;
     }
     </style>
 """, unsafe_allow_html=True)
