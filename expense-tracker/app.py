@@ -136,7 +136,7 @@ st.markdown("""
         border-color: #6b7280;
     }
     
-    /* Input fields - Blue theme with no border */
+    /* Input fields - Blue theme with no border, full width */
     input, textarea {
         background-color: #1e3a5f !important;
         border: none !important;
@@ -148,6 +148,7 @@ st.markdown("""
         transition: none !important;
         font-size: 0.95rem !important;
         font-weight: 600 !important;
+        width: 100% !important;
         /* Remove ring utilities */
         --tw-ring-offset-shadow: 0 0 transparent !important;
         --tw-ring-shadow: 0 0 transparent !important;
