@@ -222,6 +222,16 @@ st.markdown("""
     .stTextInput, .stNumberInput, .stTextArea, .stSelectbox {
         --tw-ring-shadow: 0 0 transparent !important;
         --tw-ring-offset-shadow: 0 0 transparent !important;
+        overflow: hidden !important;
+        padding: 0 !important;
+    }
+    
+    /* Clip the outer glow using overflow */
+    .stTextInput > div,
+    .stNumberInput > div,
+    .stTextArea > div {
+        overflow: hidden !important;
+        border-radius: 20px !important;
     }
     
     /* Date and number inputs */
