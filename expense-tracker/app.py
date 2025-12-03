@@ -251,7 +251,7 @@ st.markdown("""
         cursor: pointer !important;
         background-color: #1e3a5f !important;
         color: #60a5fa !important;
-        border: 1px solid #60a5fa !important;
+        border: none !important;
         border-radius: 20px !important;
         font-weight: 600 !important;
     }
@@ -260,7 +260,7 @@ st.markdown("""
     div[data-baseweb="select"] select:focus,
     select:focus {
         background-color: #1e3a5f !important;
-        border-color: #60a5fa !important;
+        border: none !important;
         box-shadow: none !important;
         outline: none !important;
     }
@@ -269,7 +269,7 @@ st.markdown("""
     div[data-baseweb="select"] select:hover,
     select:hover {
         background-color: #2d5a8f !important;
-        border-color: #60a5fa !important;
+        border: none !important;
     }
     
     /* Select option styling */
@@ -283,14 +283,14 @@ st.markdown("""
     /* Streamlit selectbox container */
     div[data-baseweb="select"] > div {
         background-color: #1e3a5f !important;
-        border-color: #60a5fa !important;
+        border: none !important;
         border-radius: 20px !important;
     }
     
     div[data-baseweb="select"] > div:hover,
     div[data-baseweb="select"] > div:focus-within {
         background-color: #2d5a8f !important;
-        border-color: #60a5fa !important;
+        border: none !important;
     }
     
     /* Headers */
