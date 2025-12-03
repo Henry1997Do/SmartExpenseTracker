@@ -409,7 +409,16 @@ def main():
                     paper_bgcolor='#1a202c',
                     plot_bgcolor='#1a202c',
                     font=dict(color='#cbd5e0'),
-                    legend=dict(bgcolor='#1a202c', font=dict(color='#cbd5e0'))
+                    legend=dict(
+                        bgcolor='#1a202c',
+                        font=dict(color='#cbd5e0', size=12),
+                        orientation='v',
+                        yanchor='middle',
+                        y=0.5,
+                        xanchor='left',
+                        x=1.05
+                    ),
+                    margin=dict(l=20, r=150, t=60, b=20)
                 )
                 st.plotly_chart(fig_pie, use_container_width=True)
 
