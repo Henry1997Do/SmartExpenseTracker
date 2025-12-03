@@ -127,10 +127,10 @@ st.markdown("""
         border-color: #6b7280;
     }
     
-    /* Input fields - Blue theme to match dropdown */
+    /* Input fields - Blue theme with no border */
     input, textarea {
         background-color: #1e3a5f !important;
-        border: 1px solid #60a5fa !important;
+        border: none !important;
         color: #60a5fa !important;
         border-radius: 20px !important;
         padding: 0.75rem 1rem !important;
@@ -157,7 +157,7 @@ st.markdown("""
     input:focus, textarea:focus,
     input:focus-visible, textarea:focus-visible,
     input:active, textarea:active {
-        border: 1px solid #60a5fa !important;
+        border: none !important;
         box-shadow: 0 0 0 0 transparent !important;
         outline: none !important;
         outline-width: 0 !important;
@@ -170,7 +170,7 @@ st.markdown("""
     }
     
     input:hover, textarea:hover {
-        border: 1px solid #60a5fa !important;
+        border: none !important;
         background-color: #2d5a8f !important;
         box-shadow: none !important;
     }
@@ -239,7 +239,7 @@ st.markdown("""
         padding: 0.75rem 1rem !important;
         color: #60a5fa !important;
         background-color: #1e3a5f !important;
-        border: 1px solid #60a5fa !important;
+        border: none !important;
         border-radius: 20px !important;
         font-weight: 600 !important;
     }
