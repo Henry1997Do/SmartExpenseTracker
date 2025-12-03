@@ -21,52 +21,151 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# Custom CSS for better styling
+# Modern Dark Theme CSS (Inspired by Copilot)
 st.markdown("""
     <style>
-    .main {
-        padding: 0rem 1rem;
+    /* Dark background */
+    .stApp {
+        background-color: #0f1419;
+        color: #e1e8ed;
     }
+    
+    /* Main content area */
+    .main {
+        padding: 1rem 2rem;
+    }
+    
+    /* Modern tabs */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 2rem;
+        gap: 0.5rem;
+        background-color: transparent;
+        border-bottom: 1px solid #2d3748;
     }
     .stTabs [data-baseweb="tab"] {
         height: 3rem;
-        padding: 0 2rem;
-        font-size: 1.1rem;
+        padding: 0 1.5rem;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #8b95a1;
+        background-color: transparent;
+        border: none;
+        border-radius: 8px 8px 0 0;
+    }
+    .stTabs [data-baseweb="tab"]:hover {
+        background-color: #1a202c;
+        color: #e1e8ed;
+    }
+    .stTabs [data-baseweb="tab"][aria-selected="true"] {
+        background-color: #1e3a5f;
+        color: #60a5fa;
         font-weight: 600;
     }
-    .metric-card {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-        padding: 1.5rem;
-        border-radius: 10px;
-        color: white;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .success-box {
-        background-color: #d4edda;
-        border: 1px solid #c3e6cb;
-        border-radius: 5px;
-        padding: 1rem;
-        margin: 1rem 0;
-    }
-    .warning-box {
-        background-color: #fff3cd;
-        border: 1px solid #ffeaa7;
-        border-radius: 5px;
-        padding: 1rem;
-        margin: 1rem 0;
-    }
-    .info-box {
-        background-color: #d1ecf1;
-        border: 1px solid #bee5eb;
-        border-radius: 5px;
-        padding: 1rem;
-        margin: 1rem 0;
-    }
+    
+    /* Card styling */
     div[data-testid="stMetricValue"] {
-        font-size: 2rem;
-        font-weight: bold;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #60a5fa;
+    }
+    div[data-testid="stMetricLabel"] {
+        color: #8b95a1;
+        font-size: 0.875rem;
+        font-weight: 500;
+    }
+    
+    /* Buttons */
+    .stButton button {
+        background-color: #1e3a5f;
+        color: #60a5fa;
+        border: 1px solid #2d5a8f;
+        border-radius: 8px;
+        font-weight: 600;
+        padding: 0.5rem 1.5rem;
+        transition: all 0.2s;
+    }
+    .stButton button:hover {
+        background-color: #2d5a8f;
+        border-color: #60a5fa;
+        transform: translateY(-1px);
+    }
+    .stButton button[kind="primary"] {
+        background-color: #2563eb;
+        color: white;
+        border: none;
+    }
+    .stButton button[kind="primary"]:hover {
+        background-color: #1d4ed8;
+    }
+    
+    /* Input fields */
+    input, textarea, select {
+        background-color: #1a202c !important;
+        border: 1px solid #2d3748 !important;
+        color: #e1e8ed !important;
+        border-radius: 8px !important;
+    }
+    input:focus, textarea:focus, select:focus {
+        border-color: #60a5fa !important;
+        box-shadow: 0 0 0 1px #60a5fa !important;
+    }
+    
+    /* Headers */
+    h1, h2, h3 {
+        color: #e1e8ed !important;
+        font-weight: 700 !important;
+    }
+    
+    /* Text */
+    p, span, div, label {
+        color: #cbd5e0;
+    }
+    
+    /* Sidebar */
+    section[data-testid="stSidebar"] {
+        background-color: #0a0e14;
+        border-right: 1px solid #2d3748;
+    }
+    section[data-testid="stSidebar"] .stMarkdown {
+        color: #e1e8ed;
+    }
+    
+    /* Category badges */
+    .category-badge {
+        display: inline-block;
+        padding: 4px 12px;
+        border-radius: 12px;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+    }
+    .badge-food { background-color: #fbbf24; color: #78350f; }
+    .badge-transport { background-color: #60a5fa; color: #1e3a8a; }
+    .badge-shopping { background-color: #f472b6; color: #831843; }
+    .badge-bills { background-color: #a78bfa; color: #4c1d95; }
+    .badge-entertainment { background-color: #f87171; color: #7f1d1d; }
+    .badge-groceries { background-color: #34d399; color: #064e3b; }
+    .badge-healthcare { background-color: #fb923c; color: #7c2d12; }
+    .badge-travel { background-color: #818cf8; color: #312e81; }
+    
+    /* Transaction cards */
+    .transaction-card {
+        background-color: #1a202c;
+        border: 1px solid #2d3748;
+        border-radius: 12px;
+        padding: 1rem;
+        margin: 0.5rem 0;
+        transition: all 0.2s;
+    }
+    .transaction-card:hover {
+        border-color: #60a5fa;
+        transform: translateX(4px);
+    }
+    
+    /* Chart background */
+    .stPlotlyChart {
+        background-color: #1a202c;
+        border-radius: 12px;
+        padding: 1rem;
     }
     </style>
 """, unsafe_allow_html=True)
