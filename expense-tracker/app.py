@@ -166,13 +166,28 @@ st.markdown("""
     /* Select dropdowns */
     select {
         cursor: pointer;
-        color: #ffffff !important;
+        background-color: #1e3a5f !important;
+        color: #60a5fa !important;
+        border: 1px solid #60a5fa !important;
+        border-radius: 20px !important;
+        font-weight: 600 !important;
+    }
+    
+    select:focus {
+        background-color: #1e3a5f !important;
+        border-color: #60a5fa !important;
+        box-shadow: none !important;
+    }
+    
+    select:hover {
+        background-color: #2d5a8f !important;
+        border-color: #60a5fa !important;
     }
     
     /* Select option styling */
     select option {
-        background-color: #2d3748 !important;
-        color: #ffffff !important;
+        background-color: #1e3a5f !important;
+        color: #60a5fa !important;
     }
     
     /* Headers */
