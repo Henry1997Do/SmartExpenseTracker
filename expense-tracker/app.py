@@ -135,10 +135,16 @@ st.markdown("""
         border-radius: 20px !important;
         padding: 0.75rem 1rem !important;
         caret-color: #60a5fa !important;
-        box-shadow: none !important;
+        box-shadow: 0 0 0 0 transparent !important;
         transition: none !important;
         font-size: 0.95rem !important;
         font-weight: 600 !important;
+        /* Remove ring utilities */
+        --tw-ring-offset-shadow: 0 0 transparent !important;
+        --tw-ring-shadow: 0 0 transparent !important;
+        --tw-ring-color: transparent !important;
+        --tw-ring-offset-width: 0px !important;
+        --tw-ring-offset-color: transparent !important;
     }
     
     /* Placeholder text */
@@ -152,11 +158,15 @@ st.markdown("""
     input:focus-visible, textarea:focus-visible,
     input:active, textarea:active {
         border: 1px solid #60a5fa !important;
-        box-shadow: none !important;
+        box-shadow: 0 0 0 0 transparent !important;
         outline: none !important;
         outline-width: 0 !important;
         outline-offset: 0 !important;
         background-color: #1e3a5f !important;
+        /* Remove ring on focus */
+        --tw-ring-offset-shadow: 0 0 transparent !important;
+        --tw-ring-shadow: 0 0 transparent !important;
+        --tw-ring-color: transparent !important;
     }
     
     input:hover, textarea:hover {
