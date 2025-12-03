@@ -147,13 +147,13 @@ st.markdown("""
     }
     
     input:focus, textarea:focus, select:focus {
-        border-color: #60a5fa !important;
-        box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.15) !important;
+        border-color: #4a5568 !important;
+        box-shadow: none !important;
         outline: none !important;
         background-color: #374151 !important;
     }
     input:hover, textarea:hover, select:hover {
-        border-color: #60a5fa !important;
+        border-color: #4a5568 !important;
         background-color: #374151 !important;
     }
     
