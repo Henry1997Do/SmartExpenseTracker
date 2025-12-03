@@ -267,11 +267,25 @@ st.markdown("""
         min-width: 0 !important;
     }
     
-    /* Make number input container use flexbox */
+    /* Make number input container use flexbox and extend blue background */
     .stNumberInput > div > div > div {
         display: flex !important;
         gap: 0.5rem !important;
         width: 100% !important;
+    }
+    
+    /* Extend blue background to fill the container */
+    .stNumberInput [data-baseweb="base-input"] {
+        background-color: #1e3a5f !important;
+        border-radius: 20px !important;
+        flex: 1 !important;
+        display: flex !important;
+    }
+    
+    /* Make the input inside take full width */
+    .stNumberInput [data-baseweb="base-input"] > div {
+        width: 100% !important;
+        background-color: transparent !important;
     }
     
     /* Style the +/- buttons */
