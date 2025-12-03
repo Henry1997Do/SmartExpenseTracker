@@ -13,6 +13,10 @@ from datetime import datetime, timedelta
 import pickle
 import os
 from pathlib import Path
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.preprocessing import LabelEncoder
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.model_selection import train_test_split
 
 # Page configuration
 st.set_page_config(
@@ -219,7 +223,7 @@ st.markdown("""
 
 @st.cache_resource
 def load_models():
-    """Load trained ML models"""
+    """Load or train ML models"""
     try:
         # Get the directory where this script is located
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -228,16 +232,54 @@ def load_models():
         vectorizer_path = os.path.join(script_dir, 'vectorizer.pkl')
         encoder_path = os.path.join(script_dir, 'label_encoder.pkl')
 
-        with open(model_path, 'rb') as f:
-            model = pickle.load(f)
-        with open(vectorizer_path, 'rb') as f:
-            vectorizer = pickle.load(f)
-        with open(encoder_path, 'rb') as f:
-            label_encoder = pickle.load(f)
-        return model, vectorizer, label_encoder
-    except (FileNotFoundError, ModuleNotFoundError, AttributeError) as e:
-        st.warning(
-            f"⚠️ ML models could not be loaded: {str(e)}. AI Categorize feature will be disabled.")
+        # Try to load existing models
+        if os.path.exists(model_path) and os.path.exists(vectorizer_path) and os.path.exists(encoder_path):
+            with open(model_path, 'rb') as f:
+                model = pickle.load(f)
+            with open(vectorizer_path, 'rb') as f:
+                vectorizer = pickle.load(f)
+            with open(encoder_path, 'rb') as f:
+                label_encoder = pickle.load(f)
+            return model, vectorizer, label_encoder
+        else:
+            # Train models from scratch using expense data
+            st.info(
+                "🤖 Training ML models for the first time... This will take a moment.")
+            df = load_expense_data()
+
+            if len(df) < 10:
+                st.warning(
+                    "⚠️ Not enough data to train models. Need at least 10 transactions.")
+                return None, None, None
+
+            # Prepare features
+            vectorizer = TfidfVectorizer(max_features=100, ngram_range=(1, 2))
+            X = vectorizer.fit_transform(df['description'].str.lower())
+
+            label_encoder = LabelEncoder()
+            y = label_encoder.fit_transform(df['category'])
+
+            # Train model
+            model = MultinomialNB()
+            model.fit(X, y)
+
+            # Save models for next time
+            try:
+                with open(model_path, 'wb') as f:
+                    pickle.dump(model, f)
+                with open(vectorizer_path, 'wb') as f:
+                    pickle.dump(vectorizer, f)
+                with open(encoder_path, 'wb') as f:
+                    pickle.dump(label_encoder, f)
+                st.success("✅ Models trained and saved successfully!")
+            except Exception as e:
+                st.warning(f"Models trained but couldn't be saved: {e}")
+
+            return model, vectorizer, label_encoder
+
+    except Exception as e:
+        st.error(
+            f"⚠️ Error with ML models: {str(e)}. AI Categorize feature will be disabled.")
         return None, None, None
 
 
