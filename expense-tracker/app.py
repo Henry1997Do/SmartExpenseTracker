@@ -314,22 +314,34 @@ st.markdown("""
         background-color: #2d5a8f !important;
     }
     
-    /* Streamlit selectbox container - hide border by matching background */
+    /* Streamlit selectbox - AGGRESSIVE border hiding */
+    .stSelectbox,
+    .stSelectbox > div,
+    .stSelectbox > div > div,
+    .stSelectbox > div > div > div,
+    div[data-baseweb="select"],
     div[data-baseweb="select"] > div,
-    div[data-baseweb="select"] > div > div {
+    div[data-baseweb="select"] > div > div,
+    div[data-baseweb="select"] > div > div > div {
         background-color: #1e3a5f !important;
-        border: 2px solid #1e3a5f !important;
+        border: 3px solid #1e3a5f !important;
         border-radius: 20px !important;
         box-shadow: none !important;
+        outline: none !important;
     }
     
+    .stSelectbox:hover, .stSelectbox:focus, .stSelectbox:active,
+    .stSelectbox > div:hover, .stSelectbox > div:focus-within,
+    .stSelectbox > div > div:hover, .stSelectbox > div > div:focus-within,
+    div[data-baseweb="select"]:hover, div[data-baseweb="select"]:focus-within,
     div[data-baseweb="select"] > div:hover,
     div[data-baseweb="select"] > div:focus-within,
     div[data-baseweb="select"] > div > div:hover,
     div[data-baseweb="select"] > div > div:focus-within {
         background-color: #1e3a5f !important;
-        border: 2px solid #1e3a5f !important;
+        border: 3px solid #1e3a5f !important;
         box-shadow: none !important;
+        outline: none !important;
     }
     
     /* Headers */
