@@ -359,15 +359,41 @@ def main():
             st.subheader("📝 Recent Transactions")
 
             recent_df = df.sort_values('date', ascending=False).head(15).copy()
-            recent_df['date'] = recent_df['date'].dt.strftime('%Y-%m-%d')
-            recent_df['amount'] = recent_df['amount'].apply(
-                lambda x: f"${x:.2f}")
 
-            st.dataframe(
-                recent_df[['date', 'description', 'amount', 'category']],
-                use_container_width=True,
-                hide_index=True
-            )
+            # Column headers
+            col1, col2, col3, col4, col5 = st.columns([2, 3, 2, 2, 1])
+            with col1:
+                st.markdown("**Date**")
+            with col2:
+                st.markdown("**Description**")
+            with col3:
+                st.markdown("**Amount**")
+            with col4:
+                st.markdown("**Category**")
+            with col5:
+                st.markdown("**Action**")
+
+            st.markdown("---")
+
+            # Display transactions with delete buttons
+            for idx, row in recent_df.iterrows():
+                col1, col2, col3, col4, col5 = st.columns([2, 3, 2, 2, 1])
+
+                with col1:
+                    st.text(row['date'].strftime('%Y-%m-%d'))
+                with col2:
+                    st.text(row['description'])
+                with col3:
+                    st.text(f"${row['amount']:.2f}")
+                with col4:
+                    st.text(row['category'])
+                with col5:
+                    if st.button("🗑️", key=f"delete_{idx}", help="Delete this transaction"):
+                        # Delete the row from dataframe
+                        df = df.drop(idx)
+                        save_expense_data(df)
+                        st.success("✅ Transaction deleted!")
+                        st.rerun()
 
     # TAB 2: Add Expense
     with tab2:
