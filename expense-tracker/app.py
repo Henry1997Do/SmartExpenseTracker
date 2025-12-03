@@ -76,11 +76,18 @@ st.markdown("""
 def load_models():
     """Load trained ML models"""
     try:
-        with open('expense_model.pkl', 'rb') as f:
+        # Get the directory where this script is located
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+
+        model_path = os.path.join(script_dir, 'expense_model.pkl')
+        vectorizer_path = os.path.join(script_dir, 'vectorizer.pkl')
+        encoder_path = os.path.join(script_dir, 'label_encoder.pkl')
+
+        with open(model_path, 'rb') as f:
             model = pickle.load(f)
-        with open('vectorizer.pkl', 'rb') as f:
+        with open(vectorizer_path, 'rb') as f:
             vectorizer = pickle.load(f)
-        with open('label_encoder.pkl', 'rb') as f:
+        with open(encoder_path, 'rb') as f:
             label_encoder = pickle.load(f)
         return model, vectorizer, label_encoder
     except FileNotFoundError:
@@ -91,7 +98,9 @@ def load_models():
 def load_expense_data():
     """Load expense data from CSV"""
     try:
-        df = pd.read_csv('expenses.csv')
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        csv_path = os.path.join(script_dir, 'expenses.csv')
+        df = pd.read_csv(csv_path)
         df['date'] = pd.to_datetime(df['date'])
         return df
     except FileNotFoundError:
@@ -100,9 +109,11 @@ def load_expense_data():
 
 def save_expense_data(df):
     """Save expense data to CSV"""
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    csv_path = os.path.join(script_dir, 'expenses.csv')
     df_save = df.copy()
     df_save['date'] = df_save['date'].dt.strftime('%Y-%m-%d')
-    df_save.to_csv('expenses.csv', index=False)
+    df_save.to_csv(csv_path, index=False)
     st.cache_data.clear()
 
 
