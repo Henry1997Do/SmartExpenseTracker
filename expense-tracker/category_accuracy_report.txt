@@ -1,0 +1,71 @@
+======================================================================
+EXPENSE CATEGORY ACCURACY REPORT
+======================================================================
+
+Total Transactions: 36
+Total Amount: $1822.73
+Average Transaction: $50.63
+Date Range: 2025-10-28 to 2025-12-02
+
+Number of Categories: 7
+
+----------------------------------------------------------------------
+CATEGORY STATISTICS
+----------------------------------------------------------------------
+
+Food & Dining:
+  Transactions: 7
+  Total Amount: $92.98
+  Average: $13.28
+  Range: $5.50 - $22.50
+
+Transportation:
+  Transactions: 6
+  Total Amount: $192.00
+  Average: $32.00
+  Range: $12.00 - $60.00
+
+Groceries:
+  Transactions: 5
+  Total Amount: $547.80
+  Average: $109.56
+  Range: $45.00 - $200.00
+
+Entertainment:
+  Transactions: 5
+  Total Amount: $63.96
+  Average: $12.79
+  Range: $7.99 - $18.00
+
+Shopping:
+  Transactions: 5
+  Total Amount: $311.00
+  Average: $62.20
+  Range: $25.00 - $95.00
+
+Bills & Utilities:
+  Transactions: 4
+  Total Amount: $309.99
+  Average: $77.50
+  Range: $45.00 - $120.00
+
+Healthcare:
+  Transactions: 4
+  Total Amount: $305.00
+  Average: $76.25
+  Range: $25.00 - $150.00
+
+----------------------------------------------------------------------
+CATEGORY ACCURACY
+----------------------------------------------------------------------
+Food & Dining       : 100.0% (7/7 correct)
+Transportation      : 100.0% (6/6 correct)
+Groceries           : 100.0% (5/5 correct)
+Entertainment       : 100.0% (5/5 correct)
+Bills & Utilities   : 100.0% (4/4 correct)
+Shopping            : 100.0% (5/5 correct)
+Healthcare          : 100.0% (4/4 correct)
+
+----------------------------------------------------------------------
+Overall Accuracy: 100.0%
+======================================================================

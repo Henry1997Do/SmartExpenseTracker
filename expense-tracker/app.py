@@ -136,19 +136,22 @@ st.markdown("""
         border-color: #6b7280;
     }
     
-    /* Input fields - Blue theme with no border, full width */
+    /* Input fields - Blue theme with no border, full width, centered */
     input, textarea {
         background-color: #1e3a5f !important;
         border: none !important;
         color: #60a5fa !important;
         border-radius: 20px !important;
-        padding: 0.75rem 1rem !important;
+        padding: 0.75rem 1.5rem !important;
         caret-color: #60a5fa !important;
         box-shadow: 0 0 0 0 transparent !important;
         transition: none !important;
         font-size: 0.95rem !important;
         font-weight: 600 !important;
         width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        line-height: 1.5 !important;
         /* Remove ring utilities */
         --tw-ring-offset-shadow: 0 0 transparent !important;
         --tw-ring-shadow: 0 0 transparent !important;
@@ -267,15 +270,48 @@ st.markdown("""
         min-width: 0 !important;
     }
     
-    /* Number input wrapper - apply blue background to whole container including buttons */
-    .stNumberInput > div > div > div {
+    /* Number input - make one continuous blue bar */
+    .stNumberInput > div {
         display: flex !important;
-        gap: 0.5rem !important;
-        width: 100% !important;
+        gap: 0 !important;
+    }
+    
+    .stNumberInput > div > div {
         background-color: #1e3a5f !important;
         border-radius: 20px !important;
-        padding: 0.5rem !important;
+        padding: 0.5rem 1rem !important;
+        display: flex !important;
+        gap: 0 !important;
+        flex: 1 !important;
+    }
+    
+    /* Keep blue background on focus */
+    .stNumberInput > div > div:focus-within {
+        background-color: #1e3a5f !important;
+    }
+    
+    .stNumberInput > div > div > div {
+        display: flex !important;
+        gap: 0 !important;
+        width: 100% !important;
+        background-color: transparent !important;
         align-items: center !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between !important;
+    }
+    
+    /* Pull button container to eliminate gap */
+    .stNumberInput > div > div:last-child {
+        margin-left: -10px !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        padding-left: 10px !important;
+    }
+    
+    .stNumberInput > div > div:first-child {
+        border-top-right-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        padding-right: 10px !important;
     }
     
     /* Make the actual number input transparent to show container background */
@@ -285,15 +321,20 @@ st.markdown("""
         padding: 0.25rem 0.5rem !important;
     }
     
-    /* Style the +/- buttons - integrate into blue container */
+    /* Style the +/- buttons - push to far right with minimal spacing */
     .stNumberInput button {
         flex-shrink: 0 !important;
         background-color: transparent !important;
         color: #60a5fa !important;
         border: none !important;
         font-size: 1.2rem !important;
-        padding: 0.5rem !important;
-        min-width: 40px !important;
+        padding: 0.25rem 0.5rem !important;
+        min-width: 30px !important;
+        margin-left: 0.25rem !important;
+    }
+    
+    .stNumberInput button:first-of-type {
+        margin-left: auto !important;
     }
     
     .stNumberInput button:hover {
@@ -301,23 +342,32 @@ st.markdown("""
         color: #93c5fd !important;
     }
     
-    /* Make the button container part of the blue background */
-    .stNumberInput > div > div > div {
-        background-color: #1e3a5f !important;
-        border-radius: 20px !important;
-        padding: 0.25rem 0.5rem !important;
+    /* Button container - align to right */
+    .stNumberInput > div > div:last-child {
+        margin-left: -10px !important;
+        border-top-left-radius: 0 !important;
+        border-bottom-left-radius: 0 !important;
+        padding-left: 10px !important;
+        display: flex !important;
+        justify-content: flex-end !important;
     }
     
-    /* Select dropdowns - Override Streamlit defaults */
+    /* Select dropdowns - Override Streamlit defaults, centered text */
     .stSelectbox select,
     div[data-baseweb="select"] select,
     select {
         cursor: pointer !important;
-        background-color: #1e3a5f !important;
+        background-color: transparent !important;
         color: #60a5fa !important;
         border: none !important;
-        border-radius: 20px !important;
+        border-radius: 0 !important;
         font-weight: 600 !important;
+        padding: 0 !important;
+        height: auto !important;
+        line-height: 1.5 !important;
+        vertical-align: middle !important;
+        text-overflow: ellipsis !important;
+        font-size: 0.95rem !important;
     }
     
     .stSelectbox select:focus,
@@ -371,15 +421,40 @@ st.markdown("""
     /* Streamlit selectbox - Final attempt to hide border */
     /* Target the actual select element */
     .stSelectbox [data-baseweb="select"],
-    .stSelectbox [data-baseweb="select"] *,
-    div[data-baseweb="select"],
-    div[data-baseweb="select"] *,
-    div[data-baseweb="select"] > div,
-    div[data-baseweb="select"] > div > div,
-    div[data-baseweb="select"] > div > div > div {
+    div[data-baseweb="select"] {
         background-color: #1e3a5f !important;
         border: none !important;
         border-radius: 20px !important;
+        box-shadow: none !important;
+        outline: none !important;
+        padding: 0 !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+    
+    .stSelectbox [data-baseweb="select"] > div,
+    div[data-baseweb="select"] > div {
+        padding: 0 1.5rem !important;
+        min-height: 3rem !important;
+        height: 3rem !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    
+    .stSelectbox [data-baseweb="select"] > div > div,
+    div[data-baseweb="select"] > div > div {
+        padding: 0 !important;
+        min-height: auto !important;
+        height: auto !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    
+    .stSelectbox [data-baseweb="select"] *,
+    div[data-baseweb="select"] *,
+    div[data-baseweb="select"] > div > div > div {
+        background-color: transparent !important;
+        border: none !important;
         box-shadow: none !important;
         outline: none !important;
     }
@@ -1132,13 +1207,21 @@ def main():
         if len(df) == 0:
             st.info("📝 Add some expenses first to get personalized insights!")
         else:
-            # Category selector
-            selected_category = st.selectbox(
-                "Select a category to analyze",
-                options=sorted(df['category'].unique())
-            )
+            # Category selector and button in same row
+            col1, col2 = st.columns([3, 1])
 
-            if st.button("🧠 Generate Insights", type="primary"):
+            with col1:
+                selected_category = st.selectbox(
+                    "Select a category to analyze",
+                    options=sorted(df['category'].unique())
+                )
+
+            with col2:
+                st.markdown("<br>", unsafe_allow_html=True)
+                generate_button = st.button(
+                    "🧠 Generate Insights", type="primary", use_container_width=True)
+
+            if generate_button:
                 category_data = df[df['category'] == selected_category]
 
                 # Display metrics
