@@ -250,8 +250,14 @@ st.markdown("""
     .stTextInput, .stNumberInput, .stTextArea, .stSelectbox {
         --tw-ring-shadow: 0 0 transparent !important;
         --tw-ring-offset-shadow: 0 0 transparent !important;
-        overflow: hidden !important;
+        overflow: visible !important;
         padding: 0 !important;
+    }
+    
+    /* Specifically hide overflow for number input to clip validation messages */
+    .stNumberInput {
+        overflow: hidden !important;
+        position: relative !important;
     }
     
     /* Clip the outer glow using overflow */
@@ -356,6 +362,15 @@ st.markdown("""
     /* Hide caption/helper text in number input only */
     .stNumberInput [data-testid="stCaptionContainer"],
     .stNumberInput ~ div[data-testid="stCaptionContainer"] {
+        display: none !important;
+    }
+    
+    /* Hide the small blue validation element that appears below number input */
+    .stNumberInput + .stMarkdown,
+    .stNumberInput + div[class*="caption"],
+    .stNumberInput + div[class*="Caption"],
+    .stNumberInput + div > small,
+    .stNumberInput + div[data-testid="stText"] {
         display: none !important;
     }
     
