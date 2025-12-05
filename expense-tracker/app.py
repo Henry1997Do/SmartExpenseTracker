@@ -353,6 +353,28 @@ st.markdown("""
         align-items: center !important;
     }
     
+    /* Hide any validation/error messages that appear below number input */
+    .stNumberInput > div > div[data-baseweb="form-control-container"] > div:last-child {
+        display: none !important;
+    }
+    
+    /* Hide caption/helper text in number input */
+    .stNumberInput [data-testid="stCaptionContainer"],
+    .stNumberInput .stMarkdown,
+    .stNumberInput + div,
+    .stNumberInput ~ div[data-testid="stCaptionContainer"] {
+        display: none !important;
+    }
+    
+    /* Prevent any extra elements from appearing below number input */
+    .stNumberInput {
+        margin-bottom: 0 !important;
+    }
+    
+    .stNumberInput > div:last-child:not(:first-child) {
+        display: none !important;
+    }
+    
     /* Style the +/- buttons - push to far right with minimal spacing */
     .stNumberInput button {
         flex-shrink: 0 !important;
