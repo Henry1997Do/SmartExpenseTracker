@@ -313,6 +313,7 @@ st.markdown("""
         display: flex !important;
         gap: 0 !important;
         width: 100% !important;
+        height: 100% !important;
         background-color: transparent !important;
         align-items: center !important;
         flex-wrap: nowrap !important;
@@ -337,7 +338,19 @@ st.markdown("""
     .stNumberInput input[type="number"] {
         background-color: transparent !important;
         border-radius: 0 !important;
-        padding: 0.25rem 0.5rem !important;
+        padding: 0 0.5rem !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+        line-height: 3rem !important;
+    }
+    
+    /* Ensure number input base-input wrapper is centered */
+    .stNumberInput [data-baseweb="base-input"],
+    .stNumberInput [data-baseweb="base-input"] > div {
+        height: 100% !important;
+        display: flex !important;
+        align-items: center !important;
     }
     
     /* Style the +/- buttons - push to far right with minimal spacing */
