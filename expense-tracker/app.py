@@ -273,21 +273,35 @@ st.markdown("""
         font-weight: 600 !important;
         flex: 1 !important;
         min-width: 0 !important;
+        height: 3rem !important;
+        min-height: 3rem !important;
+        box-sizing: border-box !important;
     }
     
-    /* Number input - make one continuous blue bar */
+    /* Date input wrapper - match selectbox height */
+    .stDateInput > div > div {
+        min-height: 3rem !important;
+        height: 3rem !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    
+    /* Number input - make one continuous blue bar, match date input height */
     .stNumberInput > div {
         display: flex !important;
         gap: 0 !important;
+        min-height: 3rem !important;
+        max-height: 3rem !important;
     }
     
     .stNumberInput > div > div {
         background-color: #1e3a5f !important;
         border-radius: 20px !important;
-        padding: 0.5rem 1rem !important;
+        padding: 0 1rem !important;
         display: flex !important;
         gap: 0 !important;
         flex: 1 !important;
+        align-items: center !important;
     }
     
     /* Keep blue background on focus */
