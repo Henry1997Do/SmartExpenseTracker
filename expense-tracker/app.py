@@ -136,6 +136,11 @@ st.markdown("""
         border-color: #6b7280;
     }
     
+    /* Reduce button padding to match text input height */
+    .stButton button[kind="primary"] {
+        padding: 0.6rem 1.5rem !important;
+    }
+    
     /* Input fields - Blue theme with no border, full width, centered */
     input, textarea {
         background-color: #1e3a5f !important;
@@ -1094,7 +1099,8 @@ def main():
                 st.session_state.description_text = description_input
 
         with col2:
-            st.markdown("<br>", unsafe_allow_html=True)
+            st.markdown("<div style='margin-top: 1.75rem;'></div>",
+                        unsafe_allow_html=True)
             predict_button = st.button(
                 "🔮 Predict Category",
                 type="primary",
